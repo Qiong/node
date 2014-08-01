@@ -7,10 +7,22 @@ filename = process.argv[2],
 server = net.createServer(function(connection) {
 // reporting
 console.log('Subscriber connected.');
-connection.write("Now watching '" + filename + "' for changes...\n");
+
+
+connection.write(JSON.stringify({
+type: 'watching',
+file: filename
+}) + '\n');
+
+
 // watcher setup
 let watcher = fs.watch(filename, function() {
-connection.write("File '" + filename + "' changed: " + Date.now() + "\n");
+connection.write(JSON.stringify({
+type: 'changed',
+file: filename,
+timestamp: Date.now()
+}) + '\n');
+
 });
 
 // cleanup
