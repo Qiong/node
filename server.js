@@ -17,9 +17,7 @@ http.createServer(function(request, response) {
 	response.write("<body>");
 	response.write("</body>");
 	response.write("</html>");
-	//response.write("Hello World");
 	var params = url.parse(request.url,true).query;
-	//console.log(params);
 	var a = params.number1;
 	var numA = new Number(a);
 	response.write(numA);
