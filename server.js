@@ -17,9 +17,10 @@ http.createServer(function(request, response) {
 	response.write("<body>");
 	response.write("</body>");
 	response.write("</html>");
-	var params = url.parse(request.url,true).query;
-	var a = params.number1;
-	var numA = new Number(a);
-	response.write(numA);
+	if (req.method == "POST"){
+		console.log(req.body.IP)
+	}
+
+
 	response.end();
 }).listen(8888);
