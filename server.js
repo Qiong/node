@@ -3,7 +3,7 @@
 var http = require ("http");
 var url = require("url");
 //var sys = require('sys');
-var ping = require('./lib/ping');
+//var ping = require('./lib/ping');
 var sys = require('util')
 
 http.createServer(function(request, response) {
@@ -15,7 +15,7 @@ http.createServer(function(request, response) {
 	response.write("<form method= 'GET' action='/PING'>")
 	response.write("IP Address: <input type='text' name='IP' >")
 	response.write("<br><br><br>")
-	response.write("<input type='submit' value='PIN'>");
+	response.write("<input type='submit' value='PING'>");
 	response.write("</form>")
 	response.write("<body>");
 	response.write("</body>");
@@ -28,9 +28,9 @@ http.createServer(function(request, response) {
 		console.log(url.parse(requrl).query)
 		var IP = getIP(url.parse(requrl).query)
 		console.log(IP)
-		var result = ping(IP)
+		//var result = ping(IP)
 		response.write("IP received, Ping result is");
-		response.write(result)
+		//response.write(result)
 	}
 
 	response.end();
