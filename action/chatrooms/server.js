@@ -1,5 +1,8 @@
 //server.js
 
+var chatServer = require('./lib/chat_server');
+chatServer.listen(server);
+
 var http = require('http');
 var fs = require('fs');
 var path = require('path');
